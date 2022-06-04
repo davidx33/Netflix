@@ -2,13 +2,19 @@ import './App.css';
 import React from "react";
 import Row from './Row';
  import requests from './requests';
+ import Banner from "./Banner";
 
 function App() {
   return (
     <div className="App">
-     <h1>Hey Alan lets build Netflix front end today</h1>
-     <Row title = "NETFLIX ORIGINALS" fetchUrl = {requests.fetchNetflixOriginals}></Row>
-     <Row title = "Trending Now" fetchUrl = {requests.fetchTrending}></Row>
+     {/* <Nav /> */}
+     <Banner />
+     <Row 
+      isLargeRow
+      title = "NETFLIX ORIGINALS" 
+      fetchUrl = {requests.fetchNetflixOriginals}></Row>
+     <Row title = "Trending Now" fetchUrl = {requests.fetchTrending}>
+     </Row>
      <Row title = "Top Rated" fetchUrl = {requests.fetchTopRated}></Row>
      <Row title = "Action Movies" fetchUrl = {requests.fetchActionMovies}></Row>
      <Row title = "Comedy Movies" fetchUrl = {requests.fetchComedyMovies}></Row>
