@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import axios from './axios';
 import requests from './requests';
 
+const base_url = "https://image.tmdb.org/t/p/original"
+
 function Row({ title, fetchUrl }) {
     const [movies, setMovies] = useState([]);
 
@@ -19,8 +21,14 @@ function Row({ title, fetchUrl }) {
     }, [fetchUrl]);
 
     return (
-    <div>
+    <div className='row'>
         <h2>{title}</h2>
+        <div className='row_posters'>
+            {movies.map(movie => (
+                <img className='row_poster'
+                src={`${base_url}${movie.poster_path}`} alt={movie.name}/>
+            ))}
+        </div>
         {/* container, with posters of films that we are seeing */}
     </div>
   )
